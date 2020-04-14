@@ -31,6 +31,43 @@
 
 <!-- /TOC -->
 
+# Before You Start
+
+If RHEL7 is used: 
+
+1. Install Docker (Community Edition) for RHEL 7 ([reference](https://github.com/docker/for-linux/issues/826#issuecomment-583981488))
+
+```bash
+$ sudo yum install http://ftp.riken.jp/Linux/cern/centos/7/extras/x86_64/Packages/container-selinux-2.74-1.el7.noarch.rpm
+$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+$ sudo yum install docker-ce
+````
+
+2. Install Nvidia-Docker
+```bash
+$ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+$ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
+$ sudo yum install -y nvidia-container-toolkit
+$ sudo systemctl restart docker
+```
+
+3. install CUDA 9.0 or later
+
+    not finished, not sure how to install on RHEL7
+
+If MacOs is used:
+1. Install Docker (Community Edition) for MacOS
+
+    download dmg and install
+
+2. Install Nvidia-Docker
+
+    seems no nvidia-docker for MacOS
+
+3. install CUDA 9.0 or later
+
+    download dmg and install
+
 # Quickstart
 
 **If this is your first time reading this, we recommend skipping this section and reading the following sections.** The below commands assume you have [Docker](https://docs.docker.com/get-started/) and [Nvidia-Docker](https://github.com/NVIDIA/nvidia-docker), as well as a GPU that supports [CUDA 9.0](https://developer.nvidia.com/cuda-90-download-archive) or greater. Note: you should only have to run `script/setup` once to download the data.
