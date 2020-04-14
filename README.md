@@ -7,7 +7,7 @@
 **Table of Contents**
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
+- [Before You Start](#before-you-start)
 - [Quickstart](#quickstart)
 - [Introduction](#introduction)
 	- [Project Overview](#project-overview)
