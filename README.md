@@ -84,18 +84,25 @@ If MacOs is used:
   # track your experiments, and submit your models to the benchmark
   $ wandb login
 
-  # verify your setup by training a tiny model (tried on RHEL7 dev box, takes several hours)
+  # verify your setup by training a tiny model (tried on RHEL7 dev box, takes ~ 30 minutes)
   $ python train.py --testrun
   # see other command line options, try a full training run with default values,
   # and explore other model variants by extending this baseline script
   $ python train.py --help
   $ python train.py
 
-  # generate predictions for model evaluation
-  $ python predict.py -r github/CodeSearchNet/0123456 # this is the org/project_name/run_id
+  # generate predictions for model evaluation (the run has to be logged in wandb, run_id will be released after `python train.py`, takes several hours)
+  $ python predict.py -r zhenyisx/CodeSearchNet/0123456 # this is the org/project_name/run_id
   ```
 
 Finally, you can submit your run to the [community benchmark](https://app.wandb.ai/github/CodeSearchNet/benchmark) by following these [instructions](BENCHMARK.md).
+
+Findings: 
+1. only one model is trained which could be used for all languages
+2. preprcossing data is time consuming (do we need to preprocess data every time? can we save some time in the docker environment?)
+3. understand how docker and src folders are used to train models? we kind of need to keep track of all trainings and experiments. it will take longer time for running one experiments.
+4. only submit the results into the leaderboard once in two weeks
+5. this exercise is not good for code_search project where we can visualize the results.
 
 # Introduction
 
