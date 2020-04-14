@@ -8,6 +8,7 @@
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 - [Before You Start](#before-you-start)
+- [GPU Support](#gpu-support)
 - [Quickstart](#quickstart)
 - [Introduction](#introduction)
 	- [Project Overview](#project-overview)
@@ -67,6 +68,31 @@ If MacOs is used:
 3. install CUDA 9.0 or later
 
     download dmg and install
+    
+# GPU Support
+
+MacOS **Intel UHD Graphics 630** **_DOSE NOT**_ support CUDA.
+RHEL 7: `nvidia-smi` or `watch -n 1 nvidia-smi` [reference](https://stackoverflow.com/questions/10310250/how-to-check-for-gpu-on-centos-linux)
+
+```bash
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 418.56       Driver Version: 418.56       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Quadro K420         Off  | 00000000:02:00.0  On |                  N/A |
+| 25%   35C    P8    N/A /  N/A |    152MiB /  1999MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0      9252      G   /usr/bin/X                                    57MiB |
+|    0     11937      G   /usr/bin/gnome-shell                          91MiB |
++-----------------------------------------------------------------------------+
+```
 
 # Quickstart
 
