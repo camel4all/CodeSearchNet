@@ -131,6 +131,7 @@ Findings:
 3. understand how docker and src folders are used to train models? we kind of need to keep track of all trainings and experiments. it will take longer time for running one experiments.
 4. only submit the results into the leaderboard once in two weeks
 5. this exercise is not good for code_search project where we can visualize the results.
+7. the training is very slow. i am not sure why?
 
 # Introduction
 
