@@ -74,25 +74,25 @@ If MacOs is used:
 
   ```bash
   # clone this repository
-  git clone https://github.com/github/CodeSearchNet.git
-  cd CodeSearchNet/
-  # download data (~3.5GB) from S3; build and run the Docker container
-  script/setup
-  # this will drop you into the shell inside a Docker container
-  script/console
+  $ git clone https://github.com/camel4all/CodeSearchNet.git
+  $ cd CodeSearchNet/
+  # download data (~3.5GB) from S3; build and run the Docker container (~ 10 minutes)
+  $ sudo script/setup
+  # this will drop you into the shell inside a Docker container (~ 5 minutes)
+  $ sudo script/console
   # optional: log in to W&B to see your training metrics,
   # track your experiments, and submit your models to the benchmark
-  wandb login
+  $ wandb login
 
-  # verify your setup by training a tiny model
-  python train.py --testrun
+  # verify your setup by training a tiny model (tried on RHEL7 dev box, takes several hours)
+  $ python train.py --testrun
   # see other command line options, try a full training run with default values,
   # and explore other model variants by extending this baseline script
-  python train.py --help
-  python train.py
+  $ python train.py --help
+  $ python train.py
 
   # generate predictions for model evaluation
-  python predict.py -r github/CodeSearchNet/0123456 # this is the org/project_name/run_id
+  $ python predict.py -r github/CodeSearchNet/0123456 # this is the org/project_name/run_id
   ```
 
 Finally, you can submit your run to the [community benchmark](https://app.wandb.ai/github/CodeSearchNet/benchmark) by following these [instructions](BENCHMARK.md).
