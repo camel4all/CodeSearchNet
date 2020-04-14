@@ -34,65 +34,67 @@
 
 # Before You Start
 
-If RHEL7 is used: 
+- If RHEL7 is used: 
 
-1. Install Docker (Community Edition) for RHEL 7 ([reference](https://github.com/docker/for-linux/issues/826#issuecomment-583981488))
+    1. Install Docker (Community Edition) for RHEL 7 ([reference](https://github.com/docker/for-linux/issues/826#issuecomment-583981488))
 
-```bash
-$ sudo yum install http://ftp.riken.jp/Linux/cern/centos/7/extras/x86_64/Packages/container-selinux-2.74-1.el7.noarch.rpm
-$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-$ sudo yum install docker-ce
-````
+	```bash
+	$ sudo yum install http://ftp.riken.jp/Linux/cern/centos/7/extras/x86_64/Packages/container-selinux-2.74-1.el7.noarch.rpm
+	$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+	$ sudo yum install docker-ce
+	```
 
-2. Install Nvidia-Docker
-```bash
-$ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-$ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
-$ sudo yum install -y nvidia-container-toolkit
-$ sudo systemctl restart docker
-```
+    2. Install Nvidia-Docker
+	    ```bash
+	$ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+	$ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
+	$ sudo yum install -y nvidia-container-toolkit
+	$ sudo systemctl restart docker
+	```
 
-3. install CUDA 9.0 or later
+    3. install CUDA 9.0 or later
 
-    not finished, not sure how to install on RHEL7
+    not finished, not sure how to install on RHEL7 (but it seesm already installed 10.1)
 
-If MacOs is used:
-1. Install Docker (Community Edition) for MacOS
+- If MacOs is used:
+    1. Install Docker (Community Edition) for MacOS
 
     download dmg and install
 
-2. Install Nvidia-Docker
+    2. Install Nvidia-Docker
 
     seems no nvidia-docker for MacOS
 
-3. install CUDA 9.0 or later
+    3. install CUDA 9.0 or later
 
     download dmg and install
     
 # GPU Support
 
-MacOS **Intel UHD Graphics 630** **_DOSE NOT**_ support CUDA.
-RHEL 7: `nvidia-smi` or `watch -n 1 nvidia-smi` [reference](https://stackoverflow.com/questions/10310250/how-to-check-for-gpu-on-centos-linux)
+- MacOS **Intel UHD Graphics 630** **_DOSE NOT**_ support CUDA.
 
-```bash
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 418.56       Driver Version: 418.56       CUDA Version: 10.1     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  Quadro K420         Off  | 00000000:02:00.0  On |                  N/A |
-| 25%   35C    P8    N/A /  N/A |    152MiB /  1999MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
+- RHEL 7: `nvidia-smi` or `watch -n 1 nvidia-smi` [reference](https://stackoverflow.com/questions/10310250/how-to-check-for-gpu-on-centos-linux)
 
-+-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|    0      9252      G   /usr/bin/X                                    57MiB |
-|    0     11937      G   /usr/bin/gnome-shell                          91MiB |
-+-----------------------------------------------------------------------------+
-```
+
+	```bash
+	+-----------------------------------------------------------------------------+
+	| NVIDIA-SMI 418.56       Driver Version: 418.56       CUDA Version: 10.1     |
+	|-------------------------------+----------------------+----------------------+
+	| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+	| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+	|===============================+======================+======================|
+	|   0  Quadro K420         Off  | 00000000:02:00.0  On |                  N/A |
+	| 25%   35C    P8    N/A /  N/A |    152MiB /  1999MiB |      0%      Default |
+	+-------------------------------+----------------------+----------------------+
+
+	+-----------------------------------------------------------------------------+
+	| Processes:                                                       GPU Memory |
+	|  GPU       PID   Type   Process name                             Usage      |
+	|=============================================================================|
+	|    0      9252      G   /usr/bin/X                                    57MiB |
+	|    0     11937      G   /usr/bin/gnome-shell                          91MiB |
+	+-----------------------------------------------------------------------------+
+	```
 
 # Quickstart
 
